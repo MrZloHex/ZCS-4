@@ -29,15 +29,19 @@ Number of Registers = 11
 
 ## FLAGS ##
 
-+------+
-| Name |
-+------+
-| C    |
-| B    |
-| P    |
-| 0    |
-| A    |
-| 1    |
-| Z    |
-| S    |
-+------+
++------+-----------------+
+| Name | Description     |
++------+-----------------+
+| C    | Carry           |
+| B    | Borrow          |
+| P    | Parity          |
+| 0    | --- always 0    |
+| A    | Auxiliary Carry |
+| 1    | --- always 1    |
+| Z    | Zero            |
+| S    | Sign            |
++------+-----------------+
+
+## INTERNAL MEMORY LAYOUT ##
+
+
