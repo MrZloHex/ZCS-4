@@ -1,6 +1,13 @@
-+-------------+
-|    ZCS-8    |
-+-------------+
+###############
+#    ZCS-8    #
+###############
+
+## GENERAL ##
+
+ - 8-bit internal bus
+ - 2^16 posible address of memory
+ - Little endian
+
 
 
 ## REGISTERS ##
