@@ -13,7 +13,7 @@ Number of Registers = 11
 | A     | Accumulator         | GPR                | 8 bit  |
 | B     | GPR (1)             | Argument 0         | 8      |
 | C     | GPR                 | Arg 1              | 8      |
-| D	    | GPR                 | Arg 2              | 8      |
+| D     | GPR                 | Arg 2              | 8      |
 | E     | GPR                 | Arg 3              | 8      |
 | F     | GPR                 |	Arg 4              | 8      |
 | R     | GPR                 | Return Value       | 8      |
