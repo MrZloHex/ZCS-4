@@ -18,23 +18,21 @@ Number of Registers = 11
 | Name  | Purpose             | Additional purpose | Length |
 +-------+---------------------+--------------------+--------+
 | A     | Accumulator         | GPR                | 8 bit  |
-| B     | GPR (1)             | Argument 0         | 8      |
+| B     | GPR                 | Argument 0         | 8      |
 | C     | GPR                 | Arg 1              | 8      |
 | D     | GPR                 | Arg 2              | 8      |
 | E     | GPR                 | Arg 3              | 8      |
 | F     | GPR                 |	Arg 4              | 8      |
 | R     | GPR                 | Return Value       | 8      |
-| H     | (H)igh index R (2)  | GPR                | 8      |
+| H     | (H)igh index R      | GPR                | 8      |
 | L     | (L)ow index R       | GPR                | 8      |
 | PC    | (P)rogram (C)ounter | --                 | 16     |
 | SP    | (S)tack (P)ointer   | --                 | 16     |
 +-------+---------------------+--------------------+--------+
 
-(1) GPR - (G)eneral-(P)urpose (R)egister
-(2) R - (R)egister
-
-
 ## FLAGS ##
+
+From LSB to MSB
 
 +------+-----------------+
 | Name | Description     |
@@ -59,8 +57,20 @@ Number of Registers = 11
 |    A     |   Flags  |
 |    B     |     C    |
 |    D     |     E    |
-|    F     |     R    |
+|    H     |     L    |
 +----------+----------+
 |         PC          |
 |         SP          |
 +---------------------+
+
+## MEMORY LAYOUT ##
+
++--------------+---------+
+| 0000 .. 7FFF | GP PROM |
++--------------+---------+
+| 8000 .. 97FF | VRAM    |
++--------------+---------+
+| 9800 .. 9FFF | Stack   |
++--------------+---------+
+| A000 .. FFFF | RAM     |
++--------------+---------+
