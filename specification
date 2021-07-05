@@ -1,33 +1,26 @@
 ###############
-#    ZCS-8    #
+#    ZCS-4    #
 ###############
 
 ## GENERAL ##
 
- - 8-bit internal bus
- - 2^16 posible address of memory
+ - 4-bit internal bus
+ - 2^5 posible address of memory
  - Little endian
+ - von Neumann architecture 
 
 
 
 ## REGISTERS ##
 
-Number of Registers = 11
+Number of Registers = 3
 
 +-------+---------------------+--------------------+--------+
 | Name  | Purpose             | Additional purpose | Length |
 +-------+---------------------+--------------------+--------+
-| A     | Accumulator         | GPR                | 8 bit  |
-| B     | GPR                 | Argument 0         | 8      |
-| C     | GPR                 | Arg 1              | 8      |
-| D     | GPR                 | Arg 2              | 8      |
-| E     | GPR                 | Arg 3              | 8      |
-| F     | GPR                 |	Arg 4              | 8      |
-| R     | GPR                 | Return Value       | 8      |
-| H     | (H)igh index R      | GPR                | 8      |
-| L     | (L)ow index R       | GPR                | 8      |
-| PC    | (P)rogram (C)ounter | --                 | 16     |
-| SP    | (S)tack (P)ointer   | --                 | 16     |
+| X     | Accumulator         | GPR                | 4 bit  |
+| Y     | RAM Address         | GPR                | 4      |
+| PC    | (P)rogram (C)ounter | --                 | 4      |
 +-------+---------------------+--------------------+--------+
 
 ## FLAGS ##
@@ -37,40 +30,27 @@ From LSB to MSB
 +------+-----------------+
 | Name | Description     |
 +------+-----------------+
-| C    | Carry           |
-| B    | Borrow          |
-| P    | Parity          |
-| 0    | --- always 0    |
-| A    | Auxiliary Carry |
-| 1    | --- always 1    |
-| Z    | Zero            |
 | S    | Sign            |
+| C    | Carry           |
+| P    | Parity          |
+| Z    | Zero            |
 +------+-----------------+
 
 ## INTERNAL MEMORY LAYOUT ##
 
 +---------------------+
-| 15      ...       0 |
+| 7       ...       0 |
 +----------+----------+
-| 15 ..  8 |  7 ..  0 |
+| 7  ..  4 | 3  ..  0 |
 +----------+----------+
-|    A     |   Flags  |
-|    B     |     C    |
-|    D     |     E    |
-|    H     |     L    |
-+----------+----------+
-|         PC          |
-|         SP          |
+|    X     |     Y    |
+|   PC     |   Flag   |
 +---------------------+
 
 ## MEMORY LAYOUT ##
 
-+--------------+---------+
-| 0000 .. 7FFF | GP PROM |
-+--------------+---------+
-| 8000 .. 97FF | VRAM    |
-+--------------+---------+
-| 9800 .. 9FFF | Stack   |
-+--------------+---------+
-| A000 .. FFFF | RAM     |
-+--------------+---------+
++----------+-------+
+| 00 .. 0F | PROM  |
++----------+-------+
+| 00 .. 0F | RAM   |
++----------+-------+
